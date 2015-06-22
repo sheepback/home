@@ -2,10 +2,9 @@ package de.sheepback.view;
 
 import java.awt.event.ActionListener;
 
-import de.sheepback.utils.IO;
+//import de.sheepback.utils.IO;
 import de.sheepback.main.Main;
 
-@SuppressWarnings("serial")
 public class CMD implements Main.Display {
 
 	/**
