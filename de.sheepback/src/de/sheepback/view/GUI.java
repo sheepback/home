@@ -1,13 +1,17 @@
 package de.sheepback.view;
 
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
 import de.sheepback.main.Main;
 
 @SuppressWarnings("serial")
@@ -38,7 +42,6 @@ public class GUI extends JFrame implements Main.Display {
 		btnNewPassword = new JButton("New Password");
 		btnNewPassword.setBounds(89, 55, 121, 23);
 		contentPane.add(btnNewPassword);
-
 		comboBox = new JComboBox<String>();
 		comboBox.setBounds(269, 25, 41, 20);
 		comboBox.addItem("6");
@@ -53,6 +56,8 @@ public class GUI extends JFrame implements Main.Display {
 		comboBox.addItem("15");
 		comboBox.addItem("16");
 		contentPane.add(comboBox);
+		Image icon = new ImageIcon("icon.png").getImage();
+		this.setIconImage(icon);
 		this.frame = GUI.this;
 	}
 
