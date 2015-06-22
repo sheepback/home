@@ -55,7 +55,7 @@ public class GUI extends JFrame implements Main.Display {
 		comboBox.addItem("15");
 		comboBox.addItem("16");
 		contentPane.add(comboBox);
-		Image icon = new ImageIcon("pics/icon.gif").getImage();
+		Image icon = new ImageIcon("/pics/icon.gif").getImage();
 		this.setIconImage(icon);
 		this.setLocationRelativeTo(null);
 		try {
