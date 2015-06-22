@@ -3,7 +3,6 @@ package de.sheepback.view;
 import java.awt.EventQueue;
 import java.awt.Image;
 import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-
+import javax.swing.UIManager;
 import de.sheepback.main.Main;
 
 @SuppressWarnings("serial")
@@ -58,6 +57,13 @@ public class GUI extends JFrame implements Main.Display {
 		contentPane.add(comboBox);
 		Image icon = new ImageIcon("icon.gif").getImage();
 		this.setIconImage(icon);
+		this.setLocationRelativeTo(null);
+		try {
+			UIManager
+					.setLookAndFeel("com.jgoodies.looks.windows.WindowsLookAndFeel");
+		} catch (Exception e) {
+			System.err.println("Can't set look & feel:" + e);
+		}
 		this.frame = GUI.this;
 	}
 
