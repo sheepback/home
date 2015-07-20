@@ -14,7 +14,7 @@ public class Main {
 		int getLength();
 	}
 	
-	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?$%&()=#";
+	static final String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?$%&=#";
 	static Random rnd = new Random();
 	
 	public static void main(String[] args) {
