@@ -29,16 +29,16 @@ public class Main {
 		gui.btn((new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(gui.getSelectedRadioBtn()==1){
-					gui.setText(myRandom1(gui.getLength()));
+					gui.setText(myRandom(gui.getLength(), A));
 				}
 				else if(gui.getSelectedRadioBtn()==2){
-					gui.setText(myRandom2(gui.getLength()));
+					gui.setText(myRandom(gui.getLength(), AB));
 				}
 				else if(gui.getSelectedRadioBtn()==3){
-					gui.setText(myRandom3(gui.getLength()));
+					gui.setText(myRandom(gui.getLength(), ABC));
 				}
 				else if(gui.getSelectedRadioBtn()==4){
-					gui.setText(myRandom4(gui.getLength()));
+					gui.setText(myRandom(gui.getLength(), ABCD));
 				}
 				else if(gui.getSelectedRadioBtn()==0){
 					gui.setText("ERROR 100! NO FIELD SELECTED!");
@@ -47,31 +47,10 @@ public class Main {
 		}));
 	}
 	
-	private static String myRandom1(int length){
+	private static String myRandom(int length, String word){
 		   StringBuilder sb = new StringBuilder( length );
 		   for( int i = 0; i < length; i++ ) 
-		      sb.append( A.charAt( rnd.nextInt(A.length()) ) );
-		return sb.toString();
-	}
-	
-	private static String myRandom2(int length){
-		   StringBuilder sb = new StringBuilder( length );
-		   for( int i = 0; i < length; i++ ) 
-		      sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
-		return sb.toString();
-	}
-	
-	private static String myRandom3(int length){
-		   StringBuilder sb = new StringBuilder( length );
-		   for( int i = 0; i < length; i++ ) 
-		      sb.append( ABC.charAt( rnd.nextInt(ABC.length()) ) );
-		return sb.toString();
-	}
-	
-	private static String myRandom4(int length){
-		   StringBuilder sb = new StringBuilder( length );
-		   for( int i = 0; i < length; i++ ) 
-		      sb.append( ABCD.charAt( rnd.nextInt(ABCD.length()) ) );
+		      sb.append( word.charAt( rnd.nextInt(word.length()) ) );
 		return sb.toString();
 	}
 }
