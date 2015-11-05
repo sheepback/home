@@ -34,4 +34,10 @@ public class CMD implements Main.Display {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public int getSelectedRadioBtn() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
