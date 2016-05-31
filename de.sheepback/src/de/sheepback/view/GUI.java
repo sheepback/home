@@ -23,6 +23,7 @@ public class GUI extends JFrame implements Main.Display {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JButton btnNewPassword;
+	private JButton btnSavePassword;
 	private JRadioButton jRadioButton1;
 	private JRadioButton jRadioButton2;
 	private JRadioButton jRadioButton3;
@@ -46,7 +47,7 @@ public class GUI extends JFrame implements Main.Display {
 		addPasswordButton();
 		addComboBox();
 		addRadioButtons();
-		
+		addSavePasswordButton();
 		Image icon = new ImageIcon("pics/icon.gif").getImage();
 		this.setIconImage(icon);
 		this.setLocationRelativeTo(null);
@@ -85,6 +86,11 @@ public class GUI extends JFrame implements Main.Display {
 	@Override
 	public void btn(ActionListener al) {
 		btnNewPassword.addActionListener(al);
+	}
+	
+	@Override
+	public void btnSave(ActionListener al){
+		btnSavePassword.addActionListener(al);
 	}
 
 	@Override
@@ -136,6 +142,12 @@ public class GUI extends JFrame implements Main.Display {
 		contentPane.add(comboBox);
 	}
 	
+	private void addSavePasswordButton(){
+		btnSavePassword = new JButton("Save Password");
+		btnSavePassword.setBounds(220, 55, 131, 23);
+		contentPane.add(btnSavePassword);
+	}
+	
 	private void addTextField() {
 		textField = new JTextField("Push the button...");
 		textField.setBounds(52, 25, 207, 20);
@@ -153,11 +165,11 @@ public class GUI extends JFrame implements Main.Display {
 		jRadioButton1 = new JRadioButton("Default");
 		jRadioButton1.setBounds(20, 100, 80, 20);
 		jRadioButton1.setSelected(true);
-		jRadioButton2 = new JRadioButton("Numbers");
+		jRadioButton2 = new JRadioButton("+Lower");
 		jRadioButton2.setBounds(100, 100, 80, 20);
-		jRadioButton3 = new JRadioButton("special");
-		jRadioButton3.setBounds(200, 100, 80, 20);
-		jRadioButton4 = new JRadioButton("lowercase letters");
+		jRadioButton3 = new JRadioButton("+Numbers");
+		jRadioButton3.setBounds(180, 100, 100, 20);
+		jRadioButton4 = new JRadioButton("+Special");
 		jRadioButton4.setBounds(280, 100, 150, 20);
 		
 		group = new ButtonGroup();

@@ -40,4 +40,10 @@ public class CMD implements Main.Display {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public void btnSave(ActionListener al) {
+		// TODO Auto-generated method stub
+		
+	}
 }
