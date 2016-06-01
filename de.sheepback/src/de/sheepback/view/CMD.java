@@ -46,4 +46,10 @@ public class CMD implements Main.Display {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void openSave(ActionListener al) {
+		// TODO Auto-generated method stub
+		
+	}
 }

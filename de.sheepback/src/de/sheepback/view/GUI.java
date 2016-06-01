@@ -24,11 +24,13 @@ public class GUI extends JFrame implements Main.Display {
 	private JTextField textField;
 	private JButton btnNewPassword;
 	private JButton btnSavePassword;
+	private JButton btnOpenPasswords;
 	private JRadioButton jRadioButton1;
 	private JRadioButton jRadioButton2;
 	private JRadioButton jRadioButton3;
 	private JRadioButton jRadioButton4;
 	private ButtonGroup group;
+	
 
 	JComboBox<String> comboBox;
 	GUI frame;
@@ -45,6 +47,7 @@ public class GUI extends JFrame implements Main.Display {
 		addContentPane();
 		addTextField();
 		addPasswordButton();
+		addOpenPasswordsButton();
 		addComboBox();
 		addRadioButtons();
 		addSavePasswordButton();
@@ -91,6 +94,11 @@ public class GUI extends JFrame implements Main.Display {
 	@Override
 	public void btnSave(ActionListener al){
 		btnSavePassword.addActionListener(al);
+	}
+	
+	@Override
+	public void openSave(ActionListener al){
+		btnOpenPasswords.addActionListener(al);
 	}
 
 	@Override
@@ -142,10 +150,22 @@ public class GUI extends JFrame implements Main.Display {
 		contentPane.add(comboBox);
 	}
 	
+	private void addPasswordButton() {
+		btnNewPassword = new JButton("New Password");
+		btnNewPassword.setBounds(20, 55, 121, 23);
+		contentPane.add(btnNewPassword);
+	}
+	
 	private void addSavePasswordButton(){
 		btnSavePassword = new JButton("Save Password");
-		btnSavePassword.setBounds(220, 55, 131, 23);
+		btnSavePassword.setBounds(150, 55, 131, 23);
 		contentPane.add(btnSavePassword);
+	}
+	
+	private void addOpenPasswordsButton(){
+		btnOpenPasswords = new JButton("OpenPasswords");
+		btnOpenPasswords.setBounds(290, 55, 131, 23);
+		contentPane.add(btnOpenPasswords);
 	}
 	
 	private void addTextField() {
@@ -153,12 +173,6 @@ public class GUI extends JFrame implements Main.Display {
 		textField.setBounds(52, 25, 207, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
-	}
-	
-	private void addPasswordButton() {
-		btnNewPassword = new JButton("New Password");
-		btnNewPassword.setBounds(89, 55, 121, 23);
-		contentPane.add(btnNewPassword);
 	}
 	
 	private void addRadioButtons(){

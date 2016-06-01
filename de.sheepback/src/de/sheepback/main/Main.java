@@ -2,8 +2,10 @@ package de.sheepback.main;
 
 import de.sheepback.view.GUI;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -25,6 +27,7 @@ public class Main {
 		int getLength();
 		int getSelectedRadioBtn();
 		void btnSave(ActionListener al);
+		void openSave(ActionListener al);
 		
 	}
 	
@@ -67,7 +70,20 @@ public class Main {
 				}
 			}
 		}));
-	}
+	
+	
+	gui.openSave((new ActionListener(){
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			try {
+				File file = new File("Passwords.txt");
+				Desktop.getDesktop().open(file);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}));
+}
 	
 	private static String enterName(){
 		return JOptionPane.showInputDialog("Enter the Name the Password will be used for:");
