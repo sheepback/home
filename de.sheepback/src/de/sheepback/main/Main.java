@@ -29,7 +29,6 @@ public class Main {
 		void btnSave(ActionListener al);
 		void openSave(ActionListener al);
 		void setStatus(String status);
-		
 	}	
 	
 	static final String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%§)=}[]\\(!$&?ß#-";
@@ -90,7 +89,7 @@ public class Main {
 				Desktop.getDesktop().open(file);
 				gui.setStatus("Password File opened!");
 			} catch (Exception e) {
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null,"No Passwords available yet!");
 			}
 		}
 	}));

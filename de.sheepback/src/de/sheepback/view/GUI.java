@@ -48,7 +48,7 @@ public class GUI extends JFrame implements Main.Display {
 		setTitle("PasswordGenerator");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 200);
+		setBounds(100, 100, 450, 220);
 		addMenu();
 		addContentPane();
 		addTextField();
@@ -66,7 +66,6 @@ public class GUI extends JFrame implements Main.Display {
 			} catch( Exception e ) { e.printStackTrace(); }
 		this.frame = GUI.this;
 	}
-
 
 	public void run() {
 		EventQueue.invokeLater(new Runnable() {
