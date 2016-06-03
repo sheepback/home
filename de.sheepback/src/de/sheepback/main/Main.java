@@ -28,10 +28,11 @@ public class Main {
 		int getSelectedRadioBtn();
 		void btnSave(ActionListener al);
 		void openSave(ActionListener al);
+		void setStatus(String status);
 		
-	}
+	}	
 	
-	static final String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!$&?ß#-";
+	static final String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%§)=}[]\\(!$&?ß#-";
 	static Random rnd = new Random();
 	
 	public static void main(String[] args) {
@@ -55,18 +56,27 @@ public class Main {
 				else if(gui.getSelectedRadioBtn()==0){
 					gui.setText("ERROR 100! NO FIELD SELECTED!");
 				}
+				gui.setStatus("Generated Password!");
 			}
 		}));
 		
 		gui.btnSave((new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				List<String> lines = Arrays.asList("Application: "+enterName()+" Password: "+gui.getText());
-				Path path = Paths.get("Passwords.txt");
-				try {
-					Files.write(path, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-				} catch (IOException e) {
-					e.printStackTrace();
+				if(!gui.getText().equals("")&&!gui.getText().equals("Push the button...")){
+					String applicationName = enterName();
+					if(applicationName==null || applicationName.equals("") || applicationName.trim().equals("")){
+						gui.setStatus("Password not saved: canceled or name was empty!");
+						return;
+					}
+					List<String> lines = Arrays.asList("Application: "+applicationName+" Password: "+gui.getText());
+					Path path = Paths.get("Passwords.txt");
+					try {
+						Files.write(path, lines, Charset.forName("UTF-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+						gui.setStatus("Password saved!");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}));
@@ -78,6 +88,7 @@ public class Main {
 			try {
 				File file = new File("Passwords.txt");
 				Desktop.getDesktop().open(file);
+				gui.setStatus("Password File opened!");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -2,6 +2,7 @@ package de.sheepback.view;
 
 import java.awt.EventQueue;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
@@ -9,6 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -25,13 +31,13 @@ public class GUI extends JFrame implements Main.Display {
 	private JButton btnNewPassword;
 	private JButton btnSavePassword;
 	private JButton btnOpenPasswords;
+	private JLabel status;
 	private JRadioButton jRadioButton1;
 	private JRadioButton jRadioButton2;
 	private JRadioButton jRadioButton3;
 	private JRadioButton jRadioButton4;
 	private ButtonGroup group;
 	
-
 	JComboBox<String> comboBox;
 	GUI frame;
 
@@ -43,7 +49,7 @@ public class GUI extends JFrame implements Main.Display {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 200);
-		
+		addMenu();
 		addContentPane();
 		addTextField();
 		addPasswordButton();
@@ -51,15 +57,13 @@ public class GUI extends JFrame implements Main.Display {
 		addComboBox();
 		addRadioButtons();
 		addSavePasswordButton();
+		addStatus();
 		Image icon = new ImageIcon("pics/icon.gif").getImage();
 		this.setIconImage(icon);
 		this.setLocationRelativeTo(null);
 		try {
-			UIManager
-					.setLookAndFeel("com.jgoodies.looks.windows.WindowsLookAndFeel");
-		} catch (Exception e) {
-			System.err.println("Can't set look & feel:" + e);
-		}
+			  UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+			} catch( Exception e ) { e.printStackTrace(); }
 		this.frame = GUI.this;
 	}
 
@@ -79,6 +83,11 @@ public class GUI extends JFrame implements Main.Display {
 	@Override
 	public String getText() {
 		return textField.getText();
+	}
+	
+	@Override
+	public void setStatus(String text) {
+		status.setText("Status: "+text);
 	}
 
 	@Override
@@ -125,12 +134,42 @@ public class GUI extends JFrame implements Main.Display {
 		}
 	}
 	
-	
 	private void addContentPane(){
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+	}
+	
+	private void addMenu(){
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+
+		JMenu mnMenu = new JMenu("Menu");
+		menuBar.add(mnMenu);
+
+		JMenuItem mntmInfo = new JMenuItem("Info");
+		mntmInfo.addActionListener((new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null, "Password Generator\n\nAlexander Thomas"
+						+ "\nVersion: 1.1\nDate: 03.06.2016");
+			}
+		}));
+		mnMenu.add(mntmInfo);
+
+		JMenuItem mntmExit = new JMenuItem("Exit");
+		mntmExit.addActionListener((new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(1);
+			}
+		}));
+		mnMenu.add(mntmExit);
+	}
+	
+	private void addStatus(){
+		status = new JLabel("Status: N/A");
+		status.setBounds(10, 130, 350, 30);
+		contentPane.add(status);
 	}
 	
 	private void addComboBox(){

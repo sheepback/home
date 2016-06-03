@@ -2,6 +2,7 @@ package de.sheepback.view;
 
 import java.awt.event.ActionListener;
 
+
 //import de.sheepback.utils.IO;
 import de.sheepback.main.Main;
 
@@ -49,6 +50,12 @@ public class CMD implements Main.Display {
 
 	@Override
 	public void openSave(ActionListener al) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setStatus(String status) {
 		// TODO Auto-generated method stub
 		
 	}
