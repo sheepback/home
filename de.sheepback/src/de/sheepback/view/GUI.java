@@ -174,17 +174,9 @@ public class GUI extends JFrame implements Main.Display {
 	private void addComboBox(){
 		comboBox = new JComboBox<String>();
 		comboBox.setBounds(269, 25, 41, 20);
-		comboBox.addItem("6");
-		comboBox.addItem("7");
-		comboBox.addItem("8");
-		comboBox.addItem("9");
-		comboBox.addItem("10");
-		comboBox.addItem("11");
-		comboBox.addItem("12");
-		comboBox.addItem("13");
-		comboBox.addItem("14");
-		comboBox.addItem("15");
-		comboBox.addItem("16");
+		for(int i=6;i<65;i++){
+			comboBox.addItem(String.valueOf(i));
+		}
 		contentPane.add(comboBox);
 	}
 	
