@@ -31,7 +31,11 @@ public class Main {
 		void setStatus(String status);
 	}	
 	
-	static final String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%§)=}[]\\(!$&?ß#-";
+	static final String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	static final String small = "abcdefghijklmnopqrstuvwxyz";
+	static final String numbers = "0123456789";
+	static final String special = "+*^%§)={}[]\\(!$&?ß#-/";
+	static final String letters = upper+small+numbers+special;
 	static Random rnd = new Random();
 	
 	public static void main(String[] args) {
@@ -50,7 +54,7 @@ public class Main {
 					gui.setText(myRandom(gui.getLength(), letters.substring(0,61)));
 				}
 				else if(gui.getSelectedRadioBtn()==4){
-					gui.setText(myRandom(gui.getLength(), letters.substring(0, 68)));
+					gui.setText(myRandom(gui.getLength(), letters.substring(0, 73)));
 				}
 				else if(gui.getSelectedRadioBtn()==0){
 					gui.setText("ERROR 100! NO FIELD SELECTED!");
