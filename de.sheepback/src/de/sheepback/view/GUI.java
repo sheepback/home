@@ -181,7 +181,7 @@ public class GUI extends JFrame implements Main.Display {
 	}
 	
 	private void addPasswordButton() {
-		btnNewPassword = new JButton("New Password");
+		btnNewPassword = new JButton("Generate!");
 		btnNewPassword.setBounds(20, 55, 121, 23);
 		contentPane.add(btnNewPassword);
 	}

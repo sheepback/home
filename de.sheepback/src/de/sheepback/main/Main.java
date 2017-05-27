@@ -1,5 +1,6 @@
 package de.sheepback.main;
 
+//import de.sheepback.db.MariaDB;
 import de.sheepback.view.GUI;
 
 import java.awt.Desktop;
@@ -41,6 +42,7 @@ public class Main {
 	public static void main(String[] args) {
 		GUI gui = new GUI();
 		gui.run();
+		
 		gui.btn((new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -54,7 +56,7 @@ public class Main {
 					gui.setText(myRandom(gui.getLength(), letters.substring(0,61)));
 				}
 				else if(gui.getSelectedRadioBtn()==4){
-					gui.setText(myRandom(gui.getLength(), letters.substring(0, 73)));
+					gui.setText(myRandom(gui.getLength(), letters.substring(0, 83)));
 				}
 				else if(gui.getSelectedRadioBtn()==0){
 					gui.setText("ERROR 100! NO FIELD SELECTED!");
